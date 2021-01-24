@@ -35,3 +35,7 @@ The `bird` and `ship` sprites are instantiated in the main game class.
     }
   }
 ```
+
+## Version
+
+* Using flame: ^1.0.0-rc6 as of 1/24/2021
