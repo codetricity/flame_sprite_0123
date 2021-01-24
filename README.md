@@ -1,5 +1,8 @@
 # Flutter Flame Sprite Test
 
+![screenshot](doc/screenshot_2021_01_24_part3.gif)
+
+
 ## load and display sprite
 
 * sprite is loaded from image file with `loadSprite('imageFileName')`
