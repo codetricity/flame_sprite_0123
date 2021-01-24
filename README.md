@@ -78,6 +78,9 @@ void main() {
 }
 ```
 
+Sprite and text transparency
+Try setting a custom Paint in SpriteComponent to `this.overridePaint = myPaint;`
+
 ## Version
 
 * Using flame: ^1.0.0-rc6 as of 1/24/2021

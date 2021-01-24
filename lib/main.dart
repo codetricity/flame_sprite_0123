@@ -13,7 +13,7 @@ void main() {
 class BirdGame extends BaseGame {
   Bird bird = Bird();
   Ship ship = Ship();
-  SpriteAnimationComponent whiteBird = SpriteAnimationComponent();
+  // FlappyBird flappyBird = FlappyBird();
 
   @override
   Future<void> onLoad() async {
@@ -36,6 +36,16 @@ class BirdGame extends BaseGame {
       ..x = 100
       ..y = 350;
     add(yellowFlappingAnimation);
+
+    var flappySheet = await images.load('blue_bird_sheet.png');
+    final flappySpriteSize = Vector2(100.0, 79.0);
+    SpriteAnimationData flappySpriteData = SpriteAnimationData.sequenced(
+        amount: 6, stepTime: 0.2, textureSize: Vector2(100, 79));
+    var flappyBird = SpriteAnimationComponent.fromFrameData(
+        flappySpriteSize, flappySheet, flappySpriteData)
+      ..x = 200
+      ..y = 100;
+    add(flappyBird);
   }
 
   @override
@@ -93,6 +103,31 @@ class Ship extends SpriteComponent with HasGameRef<BirdGame> {
 
     this.x = 100;
     this.y = screensize[1] - 50;
+  }
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+  }
+}
+
+class FlappyBird extends SpriteAnimationComponent with HasGameRef<BirdGame> {
+  FlappyBird(
+    Vector2 size,
+    Image image,
+    SpriteAnimationData data,
+  );
+
+  @override
+  void onMount() {
+    super.onMount();
+    this.x = 200;
+    this.y = 100;
   }
 
   @override

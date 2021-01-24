@@ -53,6 +53,15 @@ flutter:
     - assets/images/bird.png
     - assets/images/airship.png
     - assets/images/yellow_bird_sheet.png
+    - assets/images/flappy_bird/0.png
+    - assets/images/flappy_bird/3.png
+    - assets/images/flappy_bird/6.png
+    - assets/images/flappy_bird/9.png
+    - assets/images/flappy_bird/12.png
+    - assets/images/flappy_bird/15.png
+    - assets/images/blue_bird_sheet.png
+
+
 
 
   # assets:
