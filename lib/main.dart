@@ -13,6 +13,8 @@ void main() {
 class BirdGame extends BaseGame {
   Bird bird = Bird();
   Ship ship = Ship();
+  SpriteAnimationComponent whiteBird = SpriteAnimationComponent();
+
   @override
   Future<void> onLoad() async {
     var birdSprite = await loadSprite('bird.png');
@@ -29,11 +31,11 @@ class BirdGame extends BaseGame {
     final spriteSize = Vector2(100.0, 88.0);
     SpriteAnimationData spriteData = SpriteAnimationData.sequenced(
         amount: 2, stepTime: 0.3, textureSize: Vector2(100, 88));
-    final aniCom2 = SpriteAnimationComponent.fromFrameData(
+    final yellowFlappingAnimation = SpriteAnimationComponent.fromFrameData(
         spriteSize, spriteSheet, spriteData)
       ..x = 100
       ..y = 350;
-    add(aniCom2);
+    add(yellowFlappingAnimation);
   }
 
   @override

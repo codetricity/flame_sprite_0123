@@ -21,7 +21,7 @@ class BirdGame extends BaseGame {
 
 ## collision detection and remove
 
-![screenshot](doc/screenshot_2021_01_24.gif)
+![collision](doc/screenshot_2021_01_24.gif)
 
 The `bird` and `ship` sprites are instantiated in the main game class.
 
@@ -35,6 +35,22 @@ The `bird` and `ship` sprites are instantiated in the main game class.
     }
   }
 ```
+
+## animation from spritesheet
+
+![animation](doc/screenshot_2021_01_24_part2.gif)
+
+```dart
+final spriteSize = Vector2(100.0, 88.0);
+SpriteAnimationData spriteData = SpriteAnimationData.sequenced(
+    amount: 2, stepTime: 0.3, textureSize: Vector2(100, 88));
+final yellowFlappingAnimation = SpriteAnimationComponent.fromFrameData(
+    spriteSize, spriteSheet, spriteData)
+    ..x = 100
+    ..y = 350;
+add(yellowFlappingAnimation);
+```
+
 
 ## Version
 
