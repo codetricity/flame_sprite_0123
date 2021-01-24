@@ -51,6 +51,32 @@ final yellowFlappingAnimation = SpriteAnimationComponent.fromFrameData(
 add(yellowFlappingAnimation);
 ```
 
+## Notes
+
+
+For the whole frames you can just create a list with the elements in it like so:
+
+```dart
+final frames = <SpriteAnimationFrameData>[
+  SpriteAnimationFrameData(srcPosition: Vector2(0,0), srcSize: Vector2(16,36), stepTime: 0.2),
+  SpriteAnimationFrameData(srcPosition: Vector2(16,0), srcSize: Vector2(16,36), stepTime: 0.2),
+  SpriteAnimationFrameData(srcPosition: Vector2(32,0), srcSize: Vector2(16,36), stepTime: 0.2),
+  ...
+  ...
+];
+```
+
+To move the instance out of the GameWidget you can do:
+```
+void main() {
+  final myRealGame = MyRealGame();
+  runApp(
+    GameWidget(
+      game: myRealGame,
+    ),
+  );
+}
+```
 
 ## Version
 
