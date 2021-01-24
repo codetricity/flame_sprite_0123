@@ -24,6 +24,16 @@ class BirdGame extends BaseGame {
     add(ship
       ..screensize = size
       ..sprite = shipSprite);
+    var spriteSheet = await images.load('yellow_bird_sheet.png');
+
+    final spriteSize = Vector2(100.0, 88.0);
+    SpriteAnimationData spriteData = SpriteAnimationData.sequenced(
+        amount: 2, stepTime: 0.3, textureSize: Vector2(100, 88));
+    final aniCom2 = SpriteAnimationComponent.fromFrameData(
+        spriteSize, spriteSheet, spriteData)
+      ..x = 100
+      ..y = 350;
+    add(aniCom2);
   }
 
   @override
