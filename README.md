@@ -1,5 +1,7 @@
 # Flutter Flame Sprite Test
 
+## load and display sprite
+
 * sprite is loaded from image file with `loadSprite('imageFileName')`
 * SpriteComponent is instantiated above onLoad to make it accessible in update
 
@@ -16,3 +18,20 @@ class BirdGame extends BaseGame {
       ..sprite = birdSprite);
   }
   ```
+
+## collision detection and remove
+
+![screenshot](doc/screenshot_2021_01_24.gif)
+
+The `bird` and `ship` sprites are instantiated in the main game class.
+
+```dart
+  @override
+  void update(double dt) {
+    super.update(dt);
+    if (bird.toRect().contains(ship.toRect().center)) {
+      print('bird collided with ship and is dead ');
+      remove(bird);
+    }
+  }
+```

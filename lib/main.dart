@@ -12,6 +12,7 @@ void main() {
 
 class BirdGame extends BaseGame {
   Bird bird = Bird();
+  Ship ship = Ship();
   @override
   Future<void> onLoad() async {
     var birdSprite = await loadSprite('bird.png');
@@ -19,6 +20,10 @@ class BirdGame extends BaseGame {
     add(bird
       ..screensize = size
       ..sprite = birdSprite);
+    var shipSprite = await loadSprite('airship.png');
+    add(ship
+      ..screensize = size
+      ..sprite = shipSprite);
   }
 
   @override
@@ -29,6 +34,10 @@ class BirdGame extends BaseGame {
   @override
   void update(double dt) {
     super.update(dt);
+    if (bird.toRect().contains(ship.toRect().center)) {
+      print('bird collided with ship and is dead ');
+      remove(bird);
+    }
   }
 }
 
@@ -43,6 +52,7 @@ class Bird extends SpriteComponent with HasGameRef<BirdGame> {
     this.x = 100.0;
     this.y = 50.0;
     print(screensize);
+    anchor = Anchor.center;
   }
 
   @override
@@ -58,5 +68,28 @@ class Bird extends SpriteComponent with HasGameRef<BirdGame> {
     } else {
       y = 0;
     }
+  }
+}
+
+class Ship extends SpriteComponent with HasGameRef<BirdGame> {
+  var screensize;
+  @override
+  void onMount() {
+    super.onMount();
+    size = Vector2(150, 88);
+    anchor = Anchor.center;
+
+    this.x = 100;
+    this.y = screensize[1] - 50;
+  }
+
+  @override
+  void render(Canvas canvas) {
+    super.render(canvas);
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
   }
 }
