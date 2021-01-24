@@ -11,11 +11,14 @@ void main() {
 }
 
 class BirdGame extends BaseGame {
+  Bird bird = Bird();
   @override
   Future<void> onLoad() async {
     var birdSprite = await loadSprite('bird.png');
     // pass sprite and screensize
-    add(Bird(birdSprite, size));
+    add(bird
+      ..screensize = size
+      ..sprite = birdSprite);
   }
 
   @override
@@ -29,14 +32,14 @@ class BirdGame extends BaseGame {
   }
 }
 
-class Bird extends SpriteComponent {
-  final screensize;
-  Bird(birdSprite, this.screensize)
-      : super.fromSprite(Vector2(100, 79), birdSprite);
+class Bird extends SpriteComponent with HasGameRef<BirdGame> {
+  var screensize;
 
   @override
   void onMount() {
     super.onMount();
+    size = Vector2(100, 79);
+
     this.x = 100.0;
     this.y = 50.0;
     print(screensize);
