@@ -1,5 +1,30 @@
 # Flutter Flame Sprite Test
 
+## Collision Detection of Animated Sprites
+
+* Sprite on the left is a static sprite.
+* The two sprites on the right are using SpriteAnimationComponent.
+
+![Sprite Animation](doc/screenshot_2021_01_24_part4.gif)
+
+```dart
+Future<void> onLoad() async {
+  ...
+    var flappySheet = await images.load('blue_bird_sheet.png');
+    final flappySpriteSize = Vector2(100.0, 79.0);
+    SpriteAnimationData flappySpriteData = SpriteAnimationData.sequenced(
+        amount: 6, stepTime: 0.2, textureSize: Vector2(100, 79));
+    flappyBird.size = flappySpriteSize;
+    flappyBird.animation =
+        SpriteAnimation.fromFrameData(flappySheet, flappySpriteData);
+    add(flappyBird);
+```
+
+## Animated Sprite
+
+The animation below was created in the `onLoad` method.
+
+
 ![screenshot](doc/screenshot_2021_01_24_part3.gif)
 
 
@@ -40,6 +65,8 @@ The `bird` and `ship` sprites are instantiated in the main game class.
 ```
 
 ## animation from spritesheet
+
+
 
 ![animation](doc/screenshot_2021_01_24_part2.gif)
 
